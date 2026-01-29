@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Username Modal -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Welcome!</h2>
+            <p>Enter your name to start drawing.</p>
+            <input type="text" id="usernameInput" placeholder="Your Name" maxlength="15">
+            <button id="joinBtn">Join Canvas</button>
+        </div>
+    </div>
+
+    <!-- App Container -->
+    <div id="app" class="hidden">
+        <div id="app-ui">
+            <!-- Top status bar -->
+            <div id="status-bar">
+                <div class="logo">🎨Flam Drawing Canvas🖌️</div>
+                <div class="status-item">👤 <span id="userCount">0</span> Online</div>
+                <div class="status-item" id="userAvatarContainer" title="Your Avatar">
+                    <div id="userAvatar">?</div>
+                </div>
+            </div>
+
+            <!-- Floating Tool Dock -->
+            <div id="dock">
+                <div class="tool-group">
+                    <button id="tool-brush" class="tool-btn active" title="Brush">🖌️</button>
+                    <button id="tool-eraser" class="tool-btn" title="Eraser">🧽</button>
+                </div>
+
+                <div class="separator"></div>
+                <div class="tool-group">
+                    <div class="color-wrapper" title="Brush Color">
+                        <input type="color" id="colorPicker" value="#000000">
+                    </div>
+                    <div class="range-wrapper" title="Size (Brush/Text)">
+                        <span class="icon-small">●</span>
+                        <input type="range" id="brushSize" min="1" max="100" value="20">
+                    </div>
+                    <div class="color-wrapper" title="Background Color">
+                        <span class="icon-small">🎨</span>
+                        <input type="color" id="bgColorPicker" value="#ffffff">
+                    </div>
+                </div>
+                <div class="separator"></div>
+                <div class="tool-group">
+                    <button id="undoBtn" class="action-btn" title="Undo">↩️</button>
+                    <button id="redoBtn" class="action-btn" title="Redo">↪️</button>
+                    <div class="separator-vertical"></div>
+                    <button id="clearBtn" class="action-btn danger" title="Clear All">🗑️</button>
+                </div>
+            </div>
+        </div>
+        <canvas id="drawingCanvas"></canvas>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="canvas.js"></script>
+    <script src="websocket.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
