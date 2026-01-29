@@ -281,3 +281,48 @@ canvas {
 .hidden {
     display: none !important;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #status-bar {
+        padding: 10px;
+        flex-direction: row;
+        gap: 10px;
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+
+    #dock {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        width: 90%;
+        gap: 10px;
+        bottom: 10px;
+    }
+
+    .tool-group {
+        gap: 5px;
+    }
+
+    .tool-btn,
+    .action-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .separator {
+        display: none;
+        /* Hide separators on small screens to save space */
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
